@@ -5,7 +5,13 @@ local function p(t)
 	end
 end
 
-local pack_table = {"hello world",10086,33.06,one="this my first"}
+local pack_table = {
+	"hello world",
+	10086,
+	33.06,
+	one="this my first"
+}
+
 p(pack_table)
 local lightuserdata,len = seri.pack(pack_table)
 local result = seri.unpack(lightuserdata,len)
