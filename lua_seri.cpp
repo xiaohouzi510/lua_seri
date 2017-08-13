@@ -199,7 +199,7 @@ static void write_real(write_block *wr,double v)
 
 static void write_bool(write_block *wr,int boolean)
 {
-	unsigned char type = COMBINE_BYTE(edata_number,boolean?1:0);
+	unsigned char type = COMBINE_BYTE(edata_bool,boolean?1:0);
 	write_push(wr,&type,sizeof(type));
 }
 
@@ -541,7 +541,7 @@ static void unpack_table(lua_State *L,read_block *rb,unsigned char array_size)
 	if(SURPLUS -1 == array_size)
 	{
 		unsigned char *type   = (unsigned char*)rb_read(rb,sizeof(unsigned char));
-		unsigned char surplus = surplus >> 3;
+		unsigned char surplus = (int)(*type) >> 3;
 		array_size = get_integer(L,rb,surplus);
 	}
 

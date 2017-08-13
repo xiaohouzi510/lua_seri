@@ -9,7 +9,8 @@ local pack_table = {
 	"hello world",
 	10086,
 	33.06,
-	one="this my first"
+	one="this my first",
+	test = true
 }
 
 p(pack_table)
