@@ -439,7 +439,7 @@ static lua_Integer get_integer(lua_State *L,read_block *rb,unsigned char surplus
 		}
 	case enumber_word:
 		{
-			short *v = (short*)rb_read(rb,sizeof(short));
+			unsigned short *v = (unsigned short*)rb_read(rb,sizeof(unsigned short));
 			if(v == NULL)
 			{
 				invalid_stream(L,rb);
